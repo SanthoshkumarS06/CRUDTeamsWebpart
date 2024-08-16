@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "crud-webpart-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/crudWebpart/CrudWebpartWebPart.js",
+          "manifest": "./src/webparts/crudWebpart/CrudWebpartWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CrudWebpartWebPartStrings": "lib/webparts/crudWebpart/loc/{locale}.js"
+  }
+}

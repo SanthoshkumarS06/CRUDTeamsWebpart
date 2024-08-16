@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.17.1",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.12.0"
+    },
+    "version": "1.19.0",
+    "libraryName": "crud-teams-webpart",
+    "libraryId": "d4f2f541-ff56-4b5b-831d-61b0a8680eb8",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "CRUDTeamsWebpart",
+    "solutionShortDescription": "CRUDTeamsWebpart description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

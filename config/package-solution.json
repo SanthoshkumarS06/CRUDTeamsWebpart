@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "crud-teams-webpart-client-side-solution",
+    "id": "d4f2f541-ff56-4b5b-831d-61b0a8680eb8",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.19.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "CRUDTeamsWebpart description"
+      },
+      "longDescription": {
+        "default": "CRUDTeamsWebpart description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "crud-teams-webpart Feature",
+        "description": "The feature that activates elements of the crud-teams-webpart solution.",
+        "id": "dd8e6793-87ec-4480-9886-9123c97fa839",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/crud-teams-webpart.sppkg"
+  }
+}
