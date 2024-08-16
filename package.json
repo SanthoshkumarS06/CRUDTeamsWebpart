@@ -24,7 +24,10 @@
     "@pnp/sp": "^4.4.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "tslib": "2.3.1"
+    "tslib": "2.3.1",
+
+
+    "@fluentui/react-datepicker-compat": "^0.3.17"
   },
   "devDependencies": {
     "@microsoft/eslint-config-spfx": "1.20.1",
@@ -41,6 +44,14 @@
     "eslint-plugin-react-hooks": "4.3.0",
     "gulp": "4.0.2",
     "spfx-fast-serve-helpers": "~1.19.0",
-    "typescript": "4.7.4"
+    "typescript": "4.7.4",
+
+
+
+    "@rushstack/eslint-plugin": "^0.12.0",
+    "@rushstack/eslint-plugin-security": "^0.6.0",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "eslint-plugin-promise": "6.1.1",
+    "@typescript-eslint/parser": "^6.3.0"
   }
 }
