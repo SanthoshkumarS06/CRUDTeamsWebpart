@@ -7,6 +7,10 @@ import {
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
+import { spfi, SPFx } from "@pnp/sp";
+import "@pnp/sp/webs";
+import "@pnp/sp/lists";
+import "@pnp/sp/items";
 
 import * as strings from 'CrudWebpartWebPartStrings';
 import CrudWebpart from './components/CrudWebpart';
@@ -29,7 +33,8 @@ export default class CrudWebpartWebPart extends BaseClientSideWebPart<ICrudWebpa
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
-        userDisplayName: this.context.pageContext.user.displayName
+        userDisplayName: this.context.pageContext.user.displayName,
+        sp: spfi().using(SPFx(this.context)),
       }
     );
 
