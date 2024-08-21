@@ -3,6 +3,9 @@
   "id": "a371a734-4260-4481-9b4d-73b90ffbe577",
   "alias": "CrudWebpartWebPart",
   "componentType": "WebPart",
+  "experimentalData": {
+    "serverRelativeUrl": "/sites/Kotecso"
+  },
 
   // The "*" signifies that the version should be taken from the package.json
   "version": "*",

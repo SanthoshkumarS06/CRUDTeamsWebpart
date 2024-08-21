@@ -1,4 +1,4 @@
-import { SPFI } from "@pnp/sp";
+import { WebPartContext } from "@microsoft/sp-webpart-base";
 
 export interface ICrudWebpartProps {
   description: string;
@@ -6,5 +6,5 @@ export interface ICrudWebpartProps {
   environmentMessage: string;
   hasTeamsContext: boolean;
   userDisplayName: string;
-  sp?: SPFI;
+  context: WebPartContext;
 }
