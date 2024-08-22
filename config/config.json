@@ -9,10 +9,19 @@
           "manifest": "./src/webparts/crudWebpart/CrudWebpartWebPart.manifest.json"
         }
       ]
+    },
+    "info-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/info/InfoWebPart.js",
+          "manifest": "./src/webparts/info/InfoWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "CrudWebpartWebPartStrings": "lib/webparts/crudWebpart/loc/{locale}.js"
+    "CrudWebpartWebPartStrings": "lib/webparts/crudWebpart/loc/{locale}.js",
+    "InfoWebPartStrings": "lib/webparts/info/loc/{locale}.js"
   }
 }

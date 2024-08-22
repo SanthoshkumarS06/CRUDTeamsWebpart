@@ -1,11 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "a371a734-4260-4481-9b4d-73b90ffbe577",
-  "alias": "CrudWebpartWebPart",
+  "id": "4b0aa771-6c33-4d57-a11c-b79d65caf61b",
+  "alias": "InfoWebPart",
   "componentType": "WebPart",
-  "experimentalData": {
-    "serverRelativeUrl": "/sites/Kotecso"
-  },
 
   // The "*" signifies that the version should be taken from the package.json
   "version": "*",
@@ -21,11 +18,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
     "group": { "default": "Advanced" },
-    "title": { "default": "CrudWebpart" },
-    "description": { "default": "CrudWebpart description" },
+    "title": { "default": "Info" },
+    "description": { "default": "Info description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "CrudWebpart"
+      "description": "Info"
     }
   }]
 }

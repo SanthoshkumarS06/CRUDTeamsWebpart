@@ -1,0 +1,100 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.16",
+    "packageName": "com.microsoft.teams.extension",
+    "id": "4a1cf5f5-fdbb-4232-bce4-4ef014aac71b",
+    "version": "1.0.0",
+    "developer": {
+        "name": "CP SPFx + Teams Dev",
+        "websiteUrl": "https://products.office.com/en-us/sharepoint/collaboration",
+        "privacyUrl": "https://privacy.microsoft.com/en-us/privacystatement",
+        "termsOfUseUrl": "https://www.microsoft.com/en-us/servicesagreement"
+    },
+    "name": {
+        "short": "CRUDTeamsWebpart2",
+        "full": "Full name for CRUDTeamsWebpart2"
+    },
+    "description": {
+        "short": "Short description of CRUDTeamsWebpart2",
+        "full": "Full description of CRUDTeamsWebpart2"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "accentColor": "#004578",
+    "staticTabs": [
+        {
+            "entityId": "a371a734-4260-4481-9b4d-73b90ffbe577",
+            "name": "CrudWebpart",
+            "contentUrl": "https://{teamSiteDomain}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest=/_layouts/15/teamshostedapp.aspx%3Fteams%26personal%26componentId=a371a734-4260-4481-9b4d-73b90ffbe577%26forceLocale={locale}",
+            "websiteUrl": "https://products.office.com/en-us/sharepoint/collaboration",
+            "scopes": [
+                "personal"
+            ],
+            "context": [
+                "personalTab",
+                "channelTab"
+            ]
+        },
+        {
+            "entityId": "4b0aa771-6c33-4d57-a11c-b79d65caf61b",
+            "name": "Info",
+            "contentUrl": "https://{teamSiteDomain}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest=/_layouts/15/teamshostedapp.aspx%3Fteams%26personal%26componentId=4b0aa771-6c33-4d57-a11c-b79d65caf61b%26forceLocale={locale}",
+            "websiteUrl": "https://products.office.com/en-us/sharepoint/collaboration",
+            "scopes": [
+                "personal"
+            ],
+            "context": [
+                "personalTab",
+                "channelTab"
+            ]
+        },
+        {
+            "entityId":"conversations",
+            "scopes":[
+               "personal"
+            ]
+        }
+    ],
+    "configurableTabs": [
+        {
+            "configurationUrl": "https://main--configurable-tab.netlify.app",
+            "canUpdateConfiguration": true,
+            "scopes": [
+                "team"
+            ]
+        }
+    ],
+    "bots": [
+        {
+          "botId": "03599a2c-f191-4e0c-9d5e-ac1029f352d5",
+          "scopes": [
+            "personal",
+            "team",
+            "groupChat"
+          ],
+          "isNotificationOnly": true,
+          "supportsCalling": false,
+          "supportsVideo": false,
+          "supportsFiles": false
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "*.login.microsoftonline.com",
+        "*.sharepoint.com",
+        "*.sharepoint-df.com",
+        "spoppe-a.akamaihd.net",
+        "spoprod-a.akamaihd.net",
+        "resourceseng.blob.core.windows.net",
+        "msft.spoppe.com"
+    ],
+    "webApplicationInfo": {
+        "resource": "https://{teamSiteDomain}",
+        "id": "4626af67-9dcd-417f-9951-23f05661a24f"
+    }
+}
