@@ -1,4 +1,12 @@
 import * as React from "react";
+import {
+  // BrowserRouter,
+  // createBrowserRouter,
+  Route,
+  RouterProvider,
+  createHashRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
 import { DetailsList } from "@fluentui/react";
 import { spfi, SPFx } from "@pnp/sp";
 import "@pnp/sp/webs";
@@ -6,10 +14,24 @@ import "@pnp/sp/lists";
 import "@pnp/sp/items";
 
 import type { ICrudWebpartProps } from "./ICrudWebpartProps";
+import About from "./About";
+import Home from "./Home";
+
+const router = createHashRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+    </>
+  )
+);
 
 const CrudWebpart: React.FC<ICrudWebpartProps> = (props) => {
   const { context, hasTeamsContext } = props;
 
+  const [isInitialized, setIsInitialized] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
+  const [url, setUrl] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [items, setItems] = React.useState<any[]>([]);
 
@@ -24,7 +46,7 @@ const CrudWebpart: React.FC<ICrudWebpartProps> = (props) => {
 
       let absoluteUrl = context.pageContext.web.absoluteUrl;
 
-      if (!teamsSontext?.sharePointSite?.teamSitePath) {
+      if (context.pageContext.web.serverRelativeUrl === "/") {
         absoluteUrl =
           absoluteUrl +
             (context.manifest as any).experimentalData?.serverRelativeUrl ??
@@ -68,6 +90,8 @@ const CrudWebpart: React.FC<ICrudWebpartProps> = (props) => {
   }
 
   React.useEffect(() => {
+    if (!isInitialized) return;
+
     fetchItems()
       .then((items) => {
         console.log("Items fetched", items);
@@ -75,42 +99,78 @@ const CrudWebpart: React.FC<ICrudWebpartProps> = (props) => {
       .catch((error) => {
         console.error("Error fetching items", error);
       });
-  }, []);
+  }, [isInitialized]);
+
+  React.useEffect(() => {
+    if (context.pageContext.web.serverRelativeUrl === "/") {
+      const siteName = localStorage.getItem("siteName");
+
+      if (siteName) {
+        window.location.href = `/sites/${siteName}${window.location.pathname}?${window.location.search}`;
+      }
+    }
+
+    setIsInitialized(context.pageContext.web.serverRelativeUrl !== "/");
+    setLoading(false);
+  }, [items]);
 
   return (
     <div>
-      <div className="d-flex">
-        <div className="w-100">
-          <DetailsList
-            items={items}
-            columns={[
-              {
-                key: "column1",
-                name: "Title",
-                fieldName: "Title",
-                minWidth: 100,
-                maxWidth: 200,
-                isResizable: true,
-              },
-              {
-                key: "column2",
-                name: "Status",
-                fieldName: "Status",
-                minWidth: 100,
-                maxWidth: 200,
-                isResizable: true,
-              },
-            ]}
-          />
+      {loading && <div>Loading...</div>}
+
+      <a href={url}>Click link</a>
+      <br />
+      <input
+        style={{
+          width: "300px",
+          padding: "10px",
+        }}
+        type="text"
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+      />
+      <button onClick={() => localStorage.setItem("siteName", url)}>
+        Save sitename
+      </button>
+
+      {isInitialized && (
+        <div className="d-flex">
+          <div className="w-100">
+            <DetailsList
+              items={items}
+              columns={[
+                {
+                  key: "column1",
+                  name: "Title",
+                  fieldName: "Title",
+                  minWidth: 100,
+                  maxWidth: 200,
+                  isResizable: true,
+                },
+                {
+                  key: "column2",
+                  name: "Status",
+                  fieldName: "Status",
+                  minWidth: 100,
+                  maxWidth: 200,
+                  isResizable: true,
+                },
+              ]}
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <button onClick={addItem}>Add</button>
+          </div>
         </div>
-        <div>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <button onClick={addItem}>Add</button>
-        </div>
+      )}
+
+      <div>
+        <RouterProvider router={router} />
       </div>
     </div>
   );
